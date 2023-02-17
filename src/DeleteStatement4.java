@@ -17,7 +17,7 @@ public class DeleteStatement4 {
 			// db parameters
 			String url       = "jdbc:mysql://localhost:3306/fsae01";
 			String user      = "root";
-			String password  = "Aa123456";			
+			String password  = "Sims;1905";
 
 			// Class.forName("com.mysql.cj.jdbc.Driver");
 

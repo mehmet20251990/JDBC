@@ -1,31 +1,23 @@
 import java.sql.*;
-
-class InsertPrepared{
-
+class UpdatePrepared10 {
 	public static void main(String args[]){
 		try{
 			// db parameters
 			String url       = "jdbc:mysql://localhost:3306/fsae01";
 			String user      = "root";
-			String password  = "Aa123456";			
+			String password  = "Sims;1905";
 
 			// Class.forName("com.mysql.cj.jdbc.Driver");
 
 			// create a connection to the database
 			Connection con = DriverManager.getConnection(url, user, password);
-			
-			// (220, 'Ali Can', 'Ankara', 75);			
 
-			PreparedStatement stmt=con.prepareStatement("insert into ogrenciler values(?,?,?,?)");
-			
-			stmt.setInt(1,220);//1 specifies the first parameter in the query
-			stmt.setString(2,"Ali Can");
-			stmt.setString(3,"Ankara");
-			stmt.setInt(4,75);
+			PreparedStatement stmt=con.prepareStatement("update ogrenciler set isim=? where id=?");
+			stmt.setString(1,"Martin Parr");//1 specifies the first parameter in the query i.e. name
+			stmt.setInt(2,220);
 
 			int i=stmt.executeUpdate();
-			
-			System.out.println(i+" records inserted");
+			System.out.println(i+" records updated");
 
 			con.close();
 
