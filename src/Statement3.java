@@ -1,8 +1,8 @@
 import java.sql.*;
 
-public class Statement {
+public class Statement3 {
 
-	public Statement() {
+	public Statement3() {
 		// TODO Auto-generated constructor stub
 	}
 

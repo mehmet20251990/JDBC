@@ -2,9 +2,9 @@ import java.sql.DriverManager;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-public class MysqlCon {
+public class MysqlCon2 {
 
-	public MysqlCon() {
+	public MysqlCon2() {
 		// TODO Auto-generated constructor stub
 	}
 

@@ -3,9 +3,9 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class DeleteStatement {
+public class DeleteStatement4 {
 
-	public DeleteStatement() {
+	public DeleteStatement4() {
 		// TODO Auto-generated constructor stub
 	}
 

@@ -1,6 +1,6 @@
 import java.sql.*;
 
-class DeletePrepared{
+class DeletePrepared6 {
 
 	public static void main(String args[]){
 		try{
@@ -8,7 +8,7 @@ class DeletePrepared{
 			//db parameters
 			String url       = "jdbc:mysql://localhost:3306/fsae01";
 			String user      = "root";
-			String password  = "Aa123456";			
+			String password  = "Sims;1905";
 
 			//Class.forName("com.mysql.cj.jdbc.Driver");
 

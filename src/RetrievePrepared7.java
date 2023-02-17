@@ -1,6 +1,6 @@
 import java.sql.*;
 
-class RetrievePrepared{
+class RetrievePrepared7 {
 	public static void main(String args[]){
 		try{
 			// db parameters
@@ -15,6 +15,12 @@ class RetrievePrepared{
 
 			PreparedStatement stmt=con.prepareStatement("select * from ogrenciler");
 			ResultSet rs=stmt.executeQuery();
+
+			PreparedStatement st=con.prepareStatement("select from ogrenciler where id=? and isim=? and sehir=?");
+			st.setInt(1,121);
+			st.setString(2,"Veli Mert");
+			st.setString(3,"Trabzon");
+
 			while(rs.next()){
 				System.out.println(rs.getInt(1)+" "+rs.getString(2));
 			}
