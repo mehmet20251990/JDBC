@@ -1,5 +1,4 @@
 import java.sql.*;
-
 public class RetrieveStatement8 {
 	public RetrieveStatement8() {
 		// TODO Auto-generated constructor stub

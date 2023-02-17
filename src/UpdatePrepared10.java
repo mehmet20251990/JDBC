@@ -20,8 +20,6 @@ class UpdatePrepared10 {
 			System.out.println(i+" records updated");
 
 			con.close();
-
 		}catch(Exception e){ System.out.println(e);}
-
 	}
 }

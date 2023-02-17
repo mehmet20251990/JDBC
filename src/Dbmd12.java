@@ -1,11 +1,7 @@
 import java.sql.*;
-
 class Dbmd12 {
-
 	public static void main(String args[]){
-
 		try{
-
 			// db parameters
 			String url       = "jdbc:mysql://localhost:3306/fsae01";
 			String user      = "root";
@@ -15,7 +11,6 @@ class Dbmd12 {
 
 			// create a connection to the database
 			Connection con = DriverManager.getConnection(url, user, password);
-
 			DatabaseMetaData dbmd=con.getMetaData();
 			String table[]={"TABLE"};
 			ResultSet rs=dbmd.getTables(null,null,null,table);
@@ -24,10 +19,7 @@ class Dbmd12 {
 				System.out.println(rs.getString(1)+/* " "+rs.getString(2)+
 						" "+ */rs.getString(3)/* +" "+ rs.getString(4)*/);
 			}
-
 			con.close();
-
 		}catch(Exception e){ System.out.println(e);}
-
 	}
 }
