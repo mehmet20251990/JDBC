@@ -1,5 +1,4 @@
 import java.sql.*;
-
 class RetrievePrepared7 {
 	public static void main(String args[]){
 		try{
@@ -12,7 +11,6 @@ class RetrievePrepared7 {
 
 			// create a connection to the database
 			Connection con = DriverManager.getConnection(url, user, password);
-
 			PreparedStatement stmt=con.prepareStatement("select * from ogrenciler");
 			ResultSet rs=stmt.executeQuery();
 
@@ -24,10 +22,7 @@ class RetrievePrepared7 {
 			while(rs.next()){
 				System.out.println(rs.getInt(1)+" "+rs.getString(2));
 			}
-
 			con.close();
-
 		}catch(Exception e){ System.out.println(e);}
-
 	}
 }

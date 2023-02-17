@@ -1,20 +1,12 @@
-import java.sql.DriverManager;
-import java.sql.Connection;
-import java.sql.Statement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class RetrieveStatement8 {
-
 	public RetrieveStatement8() {
 		// TODO Auto-generated constructor stub
 	}
-
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
-		try{			
-
+		try{
 			// db parameters
 			String url       = "jdbc:mysql://localhost:3306/fsae01";
 			String user      = "root";
@@ -24,18 +16,19 @@ public class RetrieveStatement8 {
 
 			// create a connection to the database
 			Connection con = DriverManager.getConnection(url, user, password);
-
-			Statement stmt = con.createStatement(); 
-
+			Statement stmt = con.createStatement();
 			ResultSet rs = stmt.executeQuery("select * from ogrenciler");
 
+			ResultSetMetaData rsmd = rs.getMetaData();
+			System.out.println("Toplam Kolon Sys: " + rsmd.getColumnCount());
+			System.out.println("Ilk Kolon Adi: " + rsmd.getColumnName(1));
+			System.out.println("Ilk Kolonun VeriTipi: " + rsmd.getColumnTypeName(1));
+
 			while(rs.next())  
-				System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3)+"  "+rs.getInt(4));
+				System.out.println(
+			rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3)+"  "+rs.getInt(4));
 
 			con.close();
-
 		}catch(SQLException e){ System.out.println(e);}
-
 	}
-
 }
