@@ -1,16 +1,11 @@
 import java.sql.*;
-
 public class Statement3 {
-
 	public Statement3() {
 		// TODO Auto-generated constructor stub
 	}
-
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-				
-		try{			
-        			
+		try{
 			// db parameters
             String url       = "jdbc:mysql://localhost:3306/fsae01";
             String user      = "root";
@@ -23,7 +18,6 @@ public class Statement3 {
 
 			// Tabloda rs.next() haricinde çalışabilmek için statementı SCROLL_SENSITIVE yapmamız gerekir...
 			java.sql.Statement stmt= con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
-			
 			ResultSet rs=stmt.executeQuery("select * from ogrenciler");
 			
 			//getting the record of n rd row  
@@ -35,7 +29,5 @@ public class Statement3 {
 			
 			con.close();  
 			}catch(SQLException e){ System.out.println(e);}
-
 	}
-
 }

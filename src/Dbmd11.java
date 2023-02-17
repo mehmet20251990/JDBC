@@ -1,6 +1,6 @@
 import java.sql.*;
 
-class Dbmd{
+class Dbmd11 {
 
 	public static void main(String args[]){
 
