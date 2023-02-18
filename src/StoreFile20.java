@@ -1,7 +1,7 @@
 import java.io.*;
 import java.sql.*;
 
-public class StoreFile {
+public class StoreFile20 {
 	public static void main(String[] args) {
 		try{
 			// db parameters

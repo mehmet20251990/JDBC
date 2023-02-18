@@ -20,7 +20,7 @@ public class RetrieveImage19 {
 			byte barr[]=new byte[(int)b.length()];//an array is created but contains no data
 			barr=b.getBytes(1,(int)b.length());
 
-			FileOutputStream fout=new FileOutputStream("c:\\sonoo.jpg");
+			FileOutputStream fout=new FileOutputStream("C:\\Users\\samet\\Downloads\\linkedin.jpg");
 			fout.write(barr);
 
 			fout.close();
