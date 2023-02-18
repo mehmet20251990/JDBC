@@ -1,6 +1,6 @@
 import java.sql.*;
 import java.io.*;
-public class RetrieveImage {
+public class RetrieveImage19 {
 	public static void main(String[] args) {
 		try{
 			// db parameters
@@ -12,7 +12,6 @@ public class RetrieveImage {
 
 			// create a connection to the database
 			Connection con = DriverManager.getConnection(url, user, password);
-
 			PreparedStatement ps=con.prepareStatement("select * from ogrenciler");
 			ResultSet rs=ps.executeQuery();
 			rs.next();//now on 1st row
@@ -28,7 +27,6 @@ public class RetrieveImage {
 			System.out.println("ok");
 
 			con.close();
-
 		}catch (Exception e) {e.printStackTrace();	}
 	}
 }
