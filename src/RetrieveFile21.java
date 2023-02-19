@@ -13,7 +13,6 @@ public class RetrieveFile21 {
 
 			// create a connection to the database
 			Connection con = DriverManager.getConnection(url, user, password);
-
 			PreparedStatement ps=con.prepareStatement("select * from ogrenciler");
 			ResultSet rs=ps.executeQuery();
 			rs.next();//now on 1st row
@@ -29,7 +28,6 @@ public class RetrieveFile21 {
 
 			fw.close();
 			con.close();
-
 			System.out.println("success");
 		}catch (Exception e) {e.printStackTrace();	}
 	}
