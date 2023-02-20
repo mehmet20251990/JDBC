@@ -1,6 +1,5 @@
 import javax.sql.rowset.JdbcRowSet;
 import javax.sql.rowset.RowSetProvider;
-
 public class RowSetExample {
 	public RowSetExample() {
 		// TODO Auto-generated constructor stub
@@ -29,8 +28,7 @@ public class RowSetExample {
 				System.out.println("Isim: " + rowSet.getString(2));  
 				System.out.println("Adres: " + rowSet.getString(3));
 				System.out.println("Not: " + rowSet.getInt(4));
-			}		
-
+			}
 			rowSet.close();
 		} catch(Exception e){ System.out.println(e);}
 	}

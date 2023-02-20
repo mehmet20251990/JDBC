@@ -1,28 +1,23 @@
 package TelRehberi;
 
-
 import javax.sql.rowset.JdbcRowSet;
 import javax.sql.rowset.RowSetProvider;
 import java.sql.*;
 import java.util.ArrayList;
-
 public class DBaseHelper {
     Connection connection = null;
     Statement statement = null;
     PreparedStatement pStatement = null;
-
     private void dBaseConnect() {
         String url = "jdbc:mysql://localhost:3306/";
         String username = "newuser";
         String password = "new.1234";
         try {
             connection = DriverManager.getConnection(url, username, password);
-
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
-
     private void useTelefonRehberi() {
         String sql = "USE telefonrehberi;";
         try {
@@ -32,7 +27,6 @@ public class DBaseHelper {
             throw new RuntimeException(e);
         }
     }
-
     private void dBaseClose() {
         try {
             if (connection != null) {
@@ -42,7 +36,6 @@ public class DBaseHelper {
             throw new RuntimeException(e);
         }
     }
-
     private void createDBase() {
         dBaseConnect();
         try {
@@ -56,18 +49,15 @@ public class DBaseHelper {
                     " isim VARCHAR(45), " +
                     " tel VARCHAR(20)); ";
             statement.executeUpdate(sql);
-
         } catch (SQLException e) {
             System.out.println("Hata CreateDbase" + e.toString());
         } finally {
             dBaseClose();
         }
     }
-
     public void addData(kayitSinifi kayit) {
         dBaseConnect();
         useTelefonRehberi();
-
         int result = 0;
         String sql = "Insert into tel_nolar(isim,tel) values(?,?);";
         try {
@@ -76,16 +66,13 @@ public class DBaseHelper {
             pStatement.setString(2, kayit.getTel());
             useTelefonRehberi();
             pStatement.executeUpdate();
-
         } catch (SQLException e) {
             System.out.println("result=" + result);
             throw new RuntimeException(e);
         } finally {
             dBaseClose();
         }
-
     }
-
     public void deleteData(int id) {
         dBaseConnect();
         useTelefonRehberi();
@@ -99,9 +86,7 @@ public class DBaseHelper {
         } finally {
             dBaseClose();
         }
-
     }
-
     public void upDateData(kayitSinifi kayit) {
         dBaseConnect(); //
         useTelefonRehberi();
@@ -117,9 +102,7 @@ public class DBaseHelper {
         } finally {
             dBaseClose();
         }
-
     }
-
     public ArrayList<kayitSinifi> listData() {
         createDBase();
         ArrayList<kayitSinifi> liste = new ArrayList<>();
@@ -143,7 +126,6 @@ public class DBaseHelper {
         }
         return liste;
     }
-
 //    public ArrayList<kayitSinifi> listDataWithRowSet()  {
 //        createDBase();
 //        ArrayList<kayitSinifi> liste = new ArrayList<>();
@@ -183,7 +165,6 @@ public class DBaseHelper {
 //        }
 //        return liste;
 //    }
-
     public int getLastIndex() {
         int lastID=0;
         dBaseConnect();

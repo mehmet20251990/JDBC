@@ -1,17 +1,11 @@
-package com.javatpoint;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-
 public class TransactionManagement {
-
 	public TransactionManagement() {
 		// TODO Auto-generated constructor stub
 	}
-
 	public static void main(String args[]){
-
 		try {
 			// db parameters
 			String url       = "jdbc:mysql://localhost:3306/fsae01";
@@ -22,9 +16,7 @@ public class TransactionManagement {
 
 			// create a connection to the database
 			Connection con = DriverManager.getConnection(url, user, password);
-
 			con.setAutoCommit(false);
-
 			PreparedStatement stmt = con.prepareStatement("insert into ogrenciler values(?,?,?,?)");
 
 			int id;
@@ -45,9 +37,7 @@ public class TransactionManagement {
 			stmt.setInt(4,sinav_notu);
 
 			i=stmt.executeUpdate();
-
 			System.out.println(i+" records affected");
-
 
 			id = 321;
 			isim = "Veli Mert";
@@ -60,17 +50,11 @@ public class TransactionManagement {
 			stmt.setInt(4,sinav_notu);
 
 			i=stmt.executeUpdate();
-
 			System.out.println(i+" records affected");
 
 			con.commit();
-			// con.rollback();					
-
+			// con.rollback();
 			con.close();
-
-
 		}catch(Exception e){ System.out.println(e);}
-
 	}
-
 }

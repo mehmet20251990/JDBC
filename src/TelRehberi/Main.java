@@ -4,20 +4,17 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Scanner;
-
 public class Main {
     static ArrayList<kayitSinifi> telList = new ArrayList<>();
     static kayitSinifi kayit;
     static DBaseHelper db = new DBaseHelper();
     static Scanner scan = new Scanner(System.in);
     static Scanner scanNL = new Scanner(System.in);
-
     public static void main(String[] args) {
         telList = db.listData();
         //  telList = db.listDataWithRowSet();
         menu();
     }
-
     private static void menu() {
         System.out.println("\n\n\n\n-------------------");
         System.out.println("1 - List Records");
@@ -49,7 +46,6 @@ public class Main {
         }
         if (!secim.equalsIgnoreCase("x")) menu();
     }
-
     private static void adding() {
         System.out.println("-- Ekleme --");
         kayit = new kayitSinifi();
@@ -58,12 +54,10 @@ public class Main {
         System.out.print("Tel No : ");
         kayit.setTel(scanNL.nextLine());
         db.addData(kayit);
-
         kayit.id = db.getLastIndex();
         telList.add(kayit);
         // telList = db.listData(); // ustekı ıkı satır yerıne
     }
-
     private static void upDating() {
         System.out.println("-- Değiştirme --");
         System.out.println("-1 : Vazgeç");
@@ -79,7 +73,6 @@ public class Main {
                 kayit = telList.get(i);
                 index = i;
             }
-
         }
         if (idInclude) {
             System.out.println("güncellemek istemediğiniz alana x yazarak entere basın");
@@ -107,7 +100,6 @@ public class Main {
             System.out.println("ID bulunamadı");
         }
     }
-
     private static void deleting() {
         System.out.println("-- Silme --");
         System.out.println("X : Vazgeç");
@@ -122,13 +114,11 @@ public class Main {
                 kayit = telList.get(i);
                 index = i;
             }
-
         }
         if (idInclude) {
             System.out.printf("%5d%20s%15s%n", kayit.getId(), kayit.getIsim(), kayit.getTel());
             System.out.print("Yukarıdaki kayıt silinecektir onaylıyor musunuz(E:Evet)");
             String secim = scan.next();
-
             if (secim.equalsIgnoreCase("E")) {
                 telList.remove(index);
                 db.deleteData(kayit.getId());
@@ -137,18 +127,15 @@ public class Main {
             System.out.println("ID bulunamadı");
         }
     }
-
     private static void listing() {
         clearScreen();
         System.out.printf("%4S%20S%17S\n", "id", "isim soyisim", "telefon no");
         System.out.printf("%4S%20S%17S\n", "--", "------------", "------------");
         for (int i = 0; i < telList.size(); i++) {
             System.out.printf("%4d%20s%17s\n", telList.get(i).getId(), telList.get(i).getIsim(), telList.get(i).getTel());
-
         }
         if (telList.size() == 0) System.out.println("Gösterilebilecek kayıt bulunamadı");
     }
-
     private static void clearScreen() {
         System.out.printf("%n%n%n%n%n%n%n%n%n%n%n%n%n%n%n%n%n%n%n%n%n%n%n%n%n%n%n%n%n%n%n%n");
     }
